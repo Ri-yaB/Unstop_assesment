@@ -1,0 +1,10 @@
+<h2>Seat Booking System</h2>
+<div *ngFor="let row of seatRows; let rowIndex = index">
+  <div *ngFor="let seat of row; let seatIndex = index" 
+       [class]="seat === 1 ? 'booked-seat' : 'available-seat'">
+    Seat {{ rowIndex * 7 + seatIndex + 1 }}
+  </div>
+</div>
+
+<input type="number" [(ngModel)]="requestedSeats" placeholder="Enter seats to book" />
+<button (click)="bookSeats(requestedSeats)">Book Seats</button>
